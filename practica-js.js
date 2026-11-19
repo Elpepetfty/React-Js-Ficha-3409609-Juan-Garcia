@@ -49,6 +49,7 @@ const productos = [
   { id: 10, nombre: 'Impresora', precio: 450000, categoria: 'Oficina', stock: 1 }
 ];
 
+
 // ============ RETO 4: forEach ============
 console.log("--- Reto 4 ---");
 productos.forEach((producto, indice) => {
@@ -83,6 +84,7 @@ console.log(rango);
 console.log(audio);
 console.log(producto5);
 console.log(buscarProducto(4));
+
 
 // ============ RETO 7: some, every y reduce ============
 console.log("--- Reto 7 ---");

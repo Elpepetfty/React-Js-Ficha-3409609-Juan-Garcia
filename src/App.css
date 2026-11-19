@@ -1,19 +1,83 @@
 .contenedor {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 24px;
-  font-family: Arial, sans-serif;
+  padding: 32px 24px;
+}
+
+.contenedor h1 {
+  margin: 0 0 16px;
+  font-size: 2.2rem;
+  color: #1e293b;
+}
+
+/* Los 3 párrafos de resumen, como etiquetas */
+.contenedor > p {
+  display: inline-block;
+  margin: 0 10px 10px 0;
+  padding: 10px 16px;
+  background: #eff6ff;
+  border-radius: 8px;
+  color: #1e40af;
+  font-weight: 600;
+}
+
+.contenedor > h2 {
+  margin: 32px 0 16px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #e2e8f0;
+  color: #334155;
 }
 
 .productos {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 16px;
+  gap: 20px;
 }
 
 .producto-card {
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  padding: 16px;
-  background: white;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 18px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.06);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.producto-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(15, 23, 42, 0.12);
+}
+
+.producto-card h2 {
+  margin: 0 0 4px;
+  font-size: 1.2rem;
+  color: #0f172a;
+}
+
+.producto-card p {
+  margin: 0;
+  color: #64748b;
+  font-size: 0.95rem;
+}
+
+/* El segundo <p> es el precio */
+.producto-card p:nth-of-type(2) {
+  margin: 6px 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+/* El <strong> es la etiqueta Disponible / Agotado */
+.producto-card strong {
+  align-self: flex-start;
+  margin-top: auto;
+  padding: 4px 12px;
+  background: #e0f2fe;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  color: #075985;
 }
