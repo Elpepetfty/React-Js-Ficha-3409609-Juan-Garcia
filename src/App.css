@@ -1,83 +1,158 @@
+:root {
+  --azul: #2563eb;
+  --azul-oscuro: #1e3a8a;
+  --verde: #16a34a;
+  --ambar: #d97706;
+  --texto: #0f172a;
+  --gris: #64748b;
+  --borde: #e2e8f0;
+  --fondo-card: #ffffff;
+}
+
 .contenedor {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 32px 24px;
+  padding: 32px 24px 56px;
 }
 
+/* ---------- Encabezado ---------- */
 .contenedor h1 {
-  margin: 0 0 16px;
-  font-size: 2.2rem;
-  color: #1e293b;
+  margin: 0 0 24px;
+  padding: 32px 28px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, var(--azul-oscuro), var(--azul));
+  color: #ffffff;
+  font-size: 2.4rem;
+  letter-spacing: -0.5px;
+  box-shadow: 0 10px 25px rgba(37, 99, 235, 0.25);
 }
 
-/* Los 3 párrafos de resumen, como etiquetas */
+/* ---------- Resumen en 3 tarjetas ---------- */
 .contenedor > p {
   display: inline-block;
-  margin: 0 10px 10px 0;
-  padding: 10px 16px;
-  background: #eff6ff;
-  border-radius: 8px;
-  color: #1e40af;
+  margin: 0 12px 12px 0;
+  padding: 12px 18px;
+  background: var(--fondo-card);
+  border: 1px solid var(--borde);
+  border-left: 5px solid var(--azul);
+  border-radius: 10px;
+  color: var(--texto);
   font-weight: 600;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.05);
 }
 
+.contenedor > p:nth-of-type(2) {
+  border-left-color: var(--verde);
+}
+
+.contenedor > p:nth-of-type(3) {
+  border-left-color: var(--ambar);
+}
+
+/* ---------- Títulos de sección ---------- */
 .contenedor > h2 {
-  margin: 32px 0 16px;
-  padding-bottom: 8px;
-  border-bottom: 2px solid #e2e8f0;
-  color: #334155;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 40px 0 18px;
+  font-size: 1.4rem;
+  color: var(--texto);
 }
 
+.contenedor > h2::before {
+  content: "";
+  width: 6px;
+  height: 24px;
+  border-radius: 3px;
+  background: var(--azul);
+}
+
+/* ---------- Cuadrícula ---------- */
 .productos {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 22px;
 }
 
+/* ---------- Tarjetas ---------- */
 .producto-card {
   display: flex;
   flex-direction: column;
   gap: 6px;
-  padding: 18px;
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 12px;
-  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.06);
-  transition: transform 0.2s, box-shadow 0.2s;
+  padding: 20px;
+  background: var(--fondo-card);
+  border: 1px solid var(--borde);
+  border-top: 4px solid var(--azul);
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.06);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .producto-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 20px rgba(15, 23, 42, 0.12);
+  transform: translateY(-6px);
+  box-shadow: 0 14px 28px rgba(15, 23, 42, 0.14);
+}
+
+/* La segunda sección (solo disponibles) con acento verde */
+.productos:last-of-type .producto-card {
+  border-top-color: var(--verde);
 }
 
 .producto-card h2 {
-  margin: 0 0 4px;
+  margin: 0 0 2px;
   font-size: 1.2rem;
-  color: #0f172a;
+  color: var(--texto);
 }
 
 .producto-card p {
   margin: 0;
-  color: #64748b;
-  font-size: 0.95rem;
+  color: var(--gris);
+  font-size: 0.92rem;
 }
 
 /* El segundo <p> es el precio */
 .producto-card p:nth-of-type(2) {
-  margin: 6px 0;
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: #0f172a;
+  margin: 10px 0 6px;
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--texto);
 }
 
 /* El <strong> es la etiqueta Disponible / Agotado */
 .producto-card strong {
   align-self: flex-start;
   margin-top: auto;
-  padding: 4px 12px;
-  background: #e0f2fe;
+  padding: 5px 14px;
   border-radius: 999px;
-  font-size: 0.8rem;
-  color: #075985;
+  background: #eff6ff;
+  color: var(--azul-oscuro);
+  font-size: 0.78rem;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+}
+
+.productos:last-of-type .producto-card strong {
+  background: #dcfce7;
+  color: #166534;
+}
+
+/* ---------- Celular ---------- */
+@media (max-width: 600px) {
+  .contenedor {
+    padding: 20px 16px 40px;
+  }
+
+  .contenedor h1 {
+    padding: 24px 20px;
+    font-size: 1.7rem;
+  }
+
+  .contenedor > p {
+    display: block;
+    margin-right: 0;
+  }
+
+  .productos {
+    grid-template-columns: 1fr;
+  }
 }
